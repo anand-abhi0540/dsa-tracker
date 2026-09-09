@@ -11,11 +11,41 @@ export const api = {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       return data;
     } catch (err) {
-      console.warn('API getProblems failed, falling back to localStorage:', err);
+      console.warn('API getProblems failed (static mode / GitHub Pages), falling back to localStorage/static file:', err);
       const local = localStorage.getItem(STORAGE_KEY);
-      return local ? JSON.parse(local) : [];
+      if (local) {
+        try {
+          return JSON.parse(local);
+        } catch {
+          // continue to fetch fallback
+        }
+      }
+
+      // On first load on GitHub Pages, load static public/dsa-tracker.json
+      try {
+        const staticRes = await fetch('./dsa-tracker.json');
+        if (staticRes.ok) {
+          const staticData = await staticRes.json();
+          if (Array.isArray(staticData)) {
+            const normalized = staticData.map(p => ({
+              ...p,
+              category: p.category || p.topic || 'Array',
+              timeTaken: Number(p.timeTaken ?? p.minutes ?? 0),
+              hintStatus: p.hintStatus || p.help || 'No Hint',
+              tags: p.tags || (p.topic ? [p.topic] : [])
+            }));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+            return normalized;
+          }
+        }
+      } catch (staticErr) {
+        console.warn('Static file fetch failed:', staticErr);
+      }
+
+      return [];
     }
   },
+
 
   // Create a new problem
   async createProblem(problemData) {
