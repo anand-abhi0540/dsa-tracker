@@ -30,9 +30,9 @@ export default function LoginModal({
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div 
-        className="modal-dialog" 
-        onClick={(e) => e.stopPropagation()} 
+      <div
+        className="modal-dialog"
+        onClick={(e) => e.stopPropagation()}
         style={{ maxWidth: '420px' }}
       >
         <div className="modal-header">
@@ -48,15 +48,15 @@ export default function LoginModal({
         <form onSubmit={handleSubmit}>
           <div className="modal-body" style={{ gap: '1.1rem', padding: '1.75rem 1.5rem 1.25rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '0.25rem' }}>
-              <div 
-                style={{ 
-                  width: '48px', 
-                  height: '48px', 
-                  borderRadius: '50%', 
-                  background: 'rgba(99, 102, 241, 0.15)', 
-                  color: '#818cf8', 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
+              <div
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '50%',
+                  background: 'rgba(99, 102, 241, 0.15)',
+                  color: '#818cf8',
+                  display: 'inline-flex',
+                  alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '0.75rem'
                 }}
@@ -64,22 +64,22 @@ export default function LoginModal({
                 <ShieldCheck size={26} />
               </div>
               <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                Please enter the admin password saved in your <code style={{ color: '#a5b4fc', background: 'rgba(255,255,255,0.06)', padding: '2px 5px', borderRadius: '4px' }}>.env</code> file to log or edit problems.
+                Please enter the admin password to log or edit problems.
               </p>
             </div>
 
             {error && (
-              <div 
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  background: 'rgba(244, 63, 94, 0.12)', 
-                  border: '1px solid rgba(244, 63, 94, 0.3)', 
-                  borderRadius: 'var(--radius-md)', 
-                  padding: '0.65rem 0.85rem', 
-                  color: '#f43f5e', 
-                  fontSize: '0.8rem' 
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  background: 'rgba(244, 63, 94, 0.12)',
+                  border: '1px solid rgba(244, 63, 94, 0.3)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '0.65rem 0.85rem',
+                  color: '#f43f5e',
+                  fontSize: '0.8rem'
                 }}
               >
                 <AlertCircle size={16} style={{ flexShrink: 0 }} />
@@ -108,10 +108,10 @@ export default function LoginModal({
                 <button
                   type="button"
                   className="icon-btn"
-                  style={{ 
-                    position: 'absolute', 
-                    right: '8px', 
-                    top: '50%', 
+                  style={{
+                    position: 'absolute',
+                    right: '8px',
+                    top: '50%',
                     transform: 'translateY(-50%)',
                     color: 'var(--text-muted)'
                   }}
@@ -125,15 +125,15 @@ export default function LoginModal({
           </div>
 
           <div className="modal-footer">
-            <button 
-              type="button" 
-              className="btn btn-secondary" 
+            <button
+              type="button"
+              className="btn btn-secondary"
               onClick={onClose}
             >
               Cancel
             </button>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               id="btn-submit-login"
               className="btn btn-primary"
               style={{ minWidth: '120px' }}
