@@ -1,0 +1,183 @@
+[
+  {
+    "id": "bd9ce491-9fad-4edd-a987-fefe7db3ebf0",
+    "title": "Three Sum",
+    "url": "https://leetcode.com/problems/3sum/?envType=problem-list-v2&envId=dt6bulk5",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 65,
+    "timeTaken": 65,
+    "help": "Hint",
+    "hintStatus": "Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-23",
+    "notes": "Sort",
+    "createdAt": "2026-08-24T16:48:09.490Z"
+  },
+  {
+    "id": "31555f53-4b81-4be0-a5ee-d709372cac8e",
+    "title": "3Sum Closest",
+    "url": "https://leetcode.com/problems/3sum-closest/",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 30,
+    "timeTaken": 30,
+    "help": "No Hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-24",
+    "notes": "",
+    "createdAt": "2026-08-24T18:44:16.464Z"
+  },
+  {
+    "id": "f32b3a95-ef4c-4d36-b2da-7dfac1316390",
+    "title": "4Sum",
+    "url": "https://leetcode.com/problems/4sum",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 22,
+    "timeTaken": 22,
+    "help": "No Hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-24",
+    "notes": "Pointers, O(n3)",
+    "createdAt": "2026-08-24T19:17:51.076Z"
+  },
+  {
+    "id": "d9ab9ebd-fa29-49f4-9e46-629afdce99d9",
+    "title": "Next Permutation",
+    "url": "https://leetcode.com/problems/next-permutation",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 25,
+    "timeTaken": 25,
+    "help": "Hint",
+    "hintStatus": "Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-25",
+    "notes": "breaking Pt",
+    "createdAt": "2026-08-24T20:44:41.592Z"
+  },
+  {
+    "id": "fed0c6c9-dd12-449c-9dfd-f2421ed09b9b",
+    "title": "Shortest and Lexicographically Smallest Beautiful String",
+    "url": "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/description",
+    "topic": "Strings",
+    "category": "Strings",
+    "difficulty": "Medium",
+    "minutes": 16,
+    "timeTaken": 16,
+    "help": "No Hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Strings"
+    ],
+    "date": "2026-08-26",
+    "notes": "Sliding window upto k",
+    "createdAt": "2026-08-27T20:35:33.939Z"
+  },
+  {
+    "id": "f2cd37f9-5d40-46d0-919e-eee7e7d1deca",
+    "title": "Product of array except self",
+    "url": "https://leetcode.com/problems/product-of-array-except-self",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 50,
+    "timeTaken": 50,
+    "help": "No Hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-28",
+    "notes": "pf",
+    "createdAt": "2026-08-28T18:03:26.474Z"
+  },
+  {
+    "id": "ed4b9ef2-2b9d-4d31-8f76-dac4019391e6",
+    "title": "Maximum Subarray",
+    "url": "https://leetcode.com/problems/maximum-subarray",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 20,
+    "timeTaken": 20,
+    "help": "Hint",
+    "hintStatus": "Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-28",
+    "notes": "Kadane's Algo",
+    "createdAt": "2026-08-28T19:45:48.915Z"
+  },
+  {
+    "id": "bd005814-645a-48c1-84a3-3b97320a7720",
+    "title": "Container With Most Water",
+    "url": "https://leetcode.com/problems/container-with-most-water",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 20,
+    "timeTaken": 20,
+    "help": "No Hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-08-28",
+    "notes": "",
+    "createdAt": "2026-08-29T10:23:49.289Z"
+  },
+  {
+    "id": "0bc64d66-c27f-4c65-8689-51e52d6051e3",
+    "title": "Valid Sudoku",
+    "url": "https://leetcode.com/problems/valid-sudoku",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Medium",
+    "minutes": 35,
+    "timeTaken": 35,
+    "help": "No Hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Arrays"
+    ],
+    "date": "2026-09-01",
+    "notes": "sets",
+    "createdAt": "2026-09-01T18:08:28.863Z"
+  },
+  {
+    "id": "3ba8b0eb-c4c7-43bb-8ebf-89d023dd9b21",
+    "title": "Two Sum",
+    "url": "https://leetcode.com/problems/two-sum/",
+    "topic": "Arrays",
+    "category": "Arrays",
+    "difficulty": "Easy",
+    "minutes": 15,
+    "timeTaken": 15,
+    "help": "No hint",
+    "hintStatus": "No Hint",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "date": "2026-09-09",
+    "notes": "Hash map one-pass complement solution",
+    "createdAt": "2026-09-09T16:22:43.384Z"
+  }
+]

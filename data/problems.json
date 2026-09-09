@@ -1,0 +1,139 @@
+[
+  {
+    "id": "prob-1788970202293",
+    "title": "Invert Binary Tree",
+    "url": "https://leetcode.com/problems/invert-binary-tree/",
+    "difficulty": "Easy",
+    "category": "Tree",
+    "tags": [
+      "Tree",
+      "Binary Tree",
+      "Depth-First Search"
+    ],
+    "timeTaken": 11,
+    "hintStatus": "No Hint",
+    "notes": "Recursively swap left and right subtrees. Base case: root is null. Time: O(n), Space: O(h).",
+    "date": "2026-09-09",
+    "createdAt": "2026-09-09T16:10:02.293Z"
+  },
+  {
+    "id": "prob-1725884100001",
+    "title": "Two Sum",
+    "url": "https://leetcode.com/problems/two-sum/",
+    "difficulty": "Easy",
+    "category": "Array",
+    "tags": [
+      "Array",
+      "Hash Table"
+    ],
+    "timeTaken": 10,
+    "hintStatus": "No Hint",
+    "notes": "Classic hash map complement pattern.\nIterate through array, check if target - num exists in map. If yes, return indices.\nTime: O(n)\nSpace: O(n)",
+    "date": "2026-09-09",
+    "createdAt": "2026-09-09T09:15:00.000Z"
+  },
+  {
+    "id": "prob-1725884100002",
+    "title": "Longest Substring Without Repeating Characters",
+    "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "tags": [
+      "Hash Table",
+      "String",
+      "Sliding Window"
+    ],
+    "timeTaken": 24,
+    "hintStatus": "No Hint",
+    "notes": "Sliding window with two pointers (left & right) and a character frequency map. When duplicate is found, shrink left until duplicate is removed. Maintain max window length.\nTime: O(n)\nSpace: O(min(m, n))",
+    "date": "2026-09-09",
+    "createdAt": "2026-09-09T11:30:00.000Z"
+  },
+  {
+    "id": "prob-1725884100003",
+    "title": "LRU Cache",
+    "url": "https://leetcode.com/problems/lru-cache/",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "tags": [
+      "Hash Table",
+      "Linked List",
+      "Design",
+      "Doubly-Linked List"
+    ],
+    "timeTaken": 42,
+    "hintStatus": "Hint",
+    "notes": "Doubly Linked List + Hash Map.\nDummy head and tail nodes make edge cases (remove/insert) trivial. Hash map stores key -> Node reference for O(1) access.\nNeeded a quick peek at the dummy head/tail structure setup.",
+    "date": "2026-09-08",
+    "createdAt": "2026-09-08T16:00:00.000Z"
+  },
+  {
+    "id": "prob-1725884100004",
+    "title": "Trapping Rain Water",
+    "url": "https://leetcode.com/problems/trapping-rain-water/",
+    "difficulty": "Hard",
+    "category": "Two Pointers",
+    "tags": [
+      "Array",
+      "Two Pointers",
+      "Dynamic Programming",
+      "Stack",
+      "Monotonic Stack"
+    ],
+    "timeTaken": 38,
+    "hintStatus": "Full Solution",
+    "notes": "Two pointers approach:\nLeft and right pointers moving inward, keeping track of maxLeft and maxRight.\nWater trapped at current index is determined by the minimum of maxLeft and maxRight.\nFull solution review was needed for the two-pointer optimization from O(n) space to O(1) space.",
+    "date": "2026-09-08",
+    "createdAt": "2026-09-08T18:45:00.000Z"
+  },
+  {
+    "id": "prob-1725884100005",
+    "title": "Valid Parentheses",
+    "url": "https://leetcode.com/problems/valid-parentheses/",
+    "difficulty": "Easy",
+    "category": "Stack",
+    "tags": [
+      "String",
+      "Stack"
+    ],
+    "timeTaken": 8,
+    "hintStatus": "No Hint",
+    "notes": "Stack-based matching. Push opening brackets or use a map of closing -> opening brackets. Check if stack is empty at the end.\nTime: O(n)\nSpace: O(n)",
+    "date": "2026-09-07",
+    "createdAt": "2026-09-07T10:00:00.000Z"
+  },
+  {
+    "id": "prob-1725884100006",
+    "title": "Coin Change",
+    "url": "https://leetcode.com/problems/coin-change/",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "tags": [
+      "Array",
+      "Dynamic Programming",
+      "Breadth-First Search"
+    ],
+    "timeTaken": 32,
+    "hintStatus": "Hint",
+    "notes": "Bottom-up 1D DP table.\ndp[i] = min coins to make amount i. Initialize with amount + 1 (infinity).\nTransition: for coin in coins: if i - coin >= 0: dp[i] = min(dp[i], 1 + dp[i - coin]).\nTime: O(amount * len(coins))\nSpace: O(amount)",
+    "date": "2026-09-06",
+    "createdAt": "2026-09-06T14:20:00.000Z"
+  },
+  {
+    "id": "prob-1725884100007",
+    "title": "Median of Two Sorted Arrays",
+    "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "difficulty": "Hard",
+    "category": "Binary Search",
+    "tags": [
+      "Array",
+      "Binary Search",
+      "Divide and Conquer"
+    ],
+    "timeTaken": 55,
+    "hintStatus": "Full Solution",
+    "notes": "Binary search on the partition of the smaller array.\nEnsure left partition contains (m + n + 1) / 2 elements. Check maxLeftA <= minRightB and maxLeftB <= minRightA.\nTime: O(log(min(m, n)))\nSpace: O(1)",
+    "date": "2026-09-05",
+    "createdAt": "2026-09-05T20:10:00.000Z"
+  }
+]
