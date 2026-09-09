@@ -17,6 +17,7 @@ import {
 export default function ProblemList({
   problems,
   totalCount,
+  isAdmin,
   onEditProblem,
   onDeleteProblem,
   onViewDetails,
@@ -24,6 +25,7 @@ export default function ProblemList({
   sortBy,
   setSortBy
 }) {
+
   const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'table'
 
   const getHintBadgeClass = (status) => {
@@ -213,21 +215,26 @@ export default function ProblemList({
                   >
                     <FileText size={15} />
                   </button>
-                  <button
-                    className="icon-btn"
-                    onClick={() => onEditProblem(problem)}
-                    title="Edit problem"
-                  >
-                    <Edit3 size={15} />
-                  </button>
-                  <button
-                    className="icon-btn delete"
-                    onClick={() => onDeleteProblem(problem.id, problem.title)}
-                    title="Delete entry"
-                  >
-                    <Trash2 size={15} />
-                  </button>
+                  {isAdmin && (
+                    <>
+                      <button
+                        className="icon-btn"
+                        onClick={() => onEditProblem(problem)}
+                        title="Edit problem"
+                      >
+                        <Edit3 size={15} />
+                      </button>
+                      <button
+                        className="icon-btn delete"
+                        onClick={() => onDeleteProblem(problem.id, problem.title)}
+                        title="Delete entry"
+                      >
+                        <Trash2 size={15} />
+                      </button>
+                    </>
+                  )}
                 </div>
+
               </div>
             </div>
           ))}
@@ -311,21 +318,26 @@ export default function ProblemList({
                       >
                         <FileText size={15} />
                       </button>
-                      <button
-                        className="icon-btn"
-                        onClick={() => onEditProblem(problem)}
-                        title="Edit problem"
-                      >
-                        <Edit3 size={15} />
-                      </button>
-                      <button
-                        className="icon-btn delete"
-                        onClick={() => onDeleteProblem(problem.id, problem.title)}
-                        title="Delete entry"
-                      >
-                        <Trash2 size={15} />
-                      </button>
+                      {isAdmin && (
+                        <>
+                          <button
+                            className="icon-btn"
+                            onClick={() => onEditProblem(problem)}
+                            title="Edit problem"
+                          >
+                            <Edit3 size={15} />
+                          </button>
+                          <button
+                            className="icon-btn delete"
+                            onClick={() => onDeleteProblem(problem.id, problem.title)}
+                            title="Delete entry"
+                          >
+                            <Trash2 size={15} />
+                          </button>
+                        </>
+                      )}
                     </div>
+
                   </td>
                 </tr>
               ))}

@@ -8,11 +8,17 @@ import ProblemList from './components/ProblemList';
 import ProblemModal from './components/ProblemModal';
 import ProblemDetailModal from './components/ProblemDetailModal';
 import StopwatchModal from './components/StopwatchModal';
+import LoginModal from './components/LoginModal';
+import { authService } from './services/auth';
 import { DSA_CATEGORIES, POPULAR_TAGS } from './constants/dsaTopics';
 
 export default function App() {
   const [problems, setProblems] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Authentication state
+  const [isAdmin, setIsAdmin] = useState(() => authService.isAuthenticated());
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   // Modals state
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -20,6 +26,7 @@ export default function App() {
   const [detailProblem, setDetailProblem] = useState(null);
   const [isStopwatchOpen, setIsStopwatchOpen] = useState(false);
   const [presetTime, setPresetTime] = useState(null);
+
 
   // Filters state
   const [filters, setFilters] = useState({
@@ -261,9 +268,26 @@ export default function App() {
     }
   };
 
+  const handleLoginSuccess = () => {
+    setIsAdmin(true);
+    // If a time was preset from stopwatch, proceed to open add modal
+    if (presetTime !== null) {
+      setIsAddModalOpen(true);
+    }
+  };
+
+  const handleLogout = () => {
+    authService.logout();
+    setIsAdmin(false);
+  };
+
   const handleStopwatchFinish = (minutes) => {
     setPresetTime(minutes);
-    setIsAddModalOpen(true);
+    if (isAdmin) {
+      setIsAddModalOpen(true);
+    } else {
+      setIsLoginModalOpen(true);
+    }
   };
 
   return (
@@ -271,7 +295,14 @@ export default function App() {
       {/* Top Navbar */}
       <Header
         streakCount={streakCount}
+        isAdmin={isAdmin}
+        onOpenLoginModal={() => setIsLoginModalOpen(true)}
+        onLogout={handleLogout}
         onOpenAddModal={() => {
+          if (!isAdmin) {
+            setIsLoginModalOpen(true);
+            return;
+          }
           setEditingProblem(null);
           setPresetTime(null);
           setIsAddModalOpen(true);
@@ -297,13 +328,22 @@ export default function App() {
       <ProblemList
         problems={filteredProblems}
         totalCount={problems.length}
+        isAdmin={isAdmin}
         onEditProblem={(prob) => {
+          if (!isAdmin) {
+            setIsLoginModalOpen(true);
+            return;
+          }
           setEditingProblem(prob);
           setIsAddModalOpen(true);
         }}
         onDeleteProblem={handleDeleteProblem}
         onViewDetails={(prob) => setDetailProblem(prob)}
         onOpenAddModal={() => {
+          if (!isAdmin) {
+            setIsLoginModalOpen(true);
+            return;
+          }
           setEditingProblem(null);
           setPresetTime(null);
           setIsAddModalOpen(true);
@@ -330,7 +370,12 @@ export default function App() {
         isOpen={!!detailProblem}
         onClose={() => setDetailProblem(null)}
         problem={detailProblem}
+        isAdmin={isAdmin}
         onEdit={(prob) => {
+          if (!isAdmin) {
+            setIsLoginModalOpen(true);
+            return;
+          }
           setEditingProblem(prob);
           setIsAddModalOpen(true);
         }}
@@ -342,6 +387,14 @@ export default function App() {
         onClose={() => setIsStopwatchOpen(false)}
         onFinishWithTime={handleStopwatchFinish}
       />
+
+      {/* Admin Login Modal */}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+        onLoginSuccess={handleLoginSuccess}
+      />
     </div>
   );
 }
+

@@ -14,8 +14,10 @@ export default function ProblemDetailModal({
   isOpen,
   onClose,
   problem,
+  isAdmin,
   onEdit
 }) {
+
   if (!isOpen || !problem) return null;
 
   const formatDate = (dateStr) => {
@@ -133,16 +135,18 @@ export default function ProblemDetailModal({
         </div>
 
         <div className="modal-footer">
-          <button 
-            className="btn btn-secondary" 
-            onClick={() => {
-              onClose();
-              onEdit(problem);
-            }}
-          >
-            <Edit3 size={15} />
-            <span>Edit Entry</span>
-          </button>
+          {isAdmin && (
+            <button 
+              className="btn btn-secondary" 
+              onClick={() => {
+                onClose();
+                onEdit(problem);
+              }}
+            >
+              <Edit3 size={15} />
+              <span>Edit Entry</span>
+            </button>
+          )}
           <button className="btn btn-primary" onClick={onClose}>
             Done
           </button>

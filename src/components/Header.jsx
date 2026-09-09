@@ -6,11 +6,16 @@ import {
   Timer, 
   Download, 
   Upload, 
-  Database 
+  Lock, 
+  LogOut, 
+  ShieldCheck 
 } from 'lucide-react';
 
 export default function Header({ 
   streakCount, 
+  isAdmin,
+  onOpenLoginModal,
+  onLogout,
   onOpenAddModal, 
   onOpenStopwatch, 
   onExportJson, 
@@ -19,6 +24,10 @@ export default function Header({
   const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
+    if (!isAdmin) {
+      onOpenLoginModal();
+      return;
+    }
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
@@ -36,6 +45,22 @@ export default function Header({
     };
     reader.readAsText(file);
     e.target.value = ''; // reset
+  };
+
+  const handleAddClick = () => {
+    if (isAdmin) {
+      onOpenAddModal();
+    } else {
+      onOpenLoginModal();
+    }
+  };
+
+  const handleImportClick = () => {
+    if (isAdmin) {
+      fileInputRef.current?.click();
+    } else {
+      onOpenLoginModal();
+    }
   };
 
   return (
@@ -95,20 +120,60 @@ export default function Header({
         <button 
           id="btn-import-json"
           className="btn btn-secondary" 
-          onClick={() => fileInputRef.current?.click()}
-          title="Import problems from JSON file"
+          onClick={handleImportClick}
+          title={isAdmin ? "Import problems from JSON file" : "Admin login required to import"}
         >
           <Upload size={16} />
           <span>Import</span>
         </button>
 
+        {/* Admin Login / Logout status */}
+        {isAdmin ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <span 
+              className="badge" 
+              style={{ 
+                background: 'rgba(16, 185, 129, 0.15)', 
+                color: '#34d399', 
+                border: '1px solid rgba(16, 185, 129, 0.35)',
+                padding: '0.45rem 0.65rem'
+              }}
+              title="Admin authenticated: You can add, edit, and delete problems"
+            >
+              <ShieldCheck size={14} />
+              <span>Admin</span>
+            </span>
+            <button 
+              id="btn-logout"
+              className="btn btn-ghost" 
+              onClick={onLogout}
+              title="Log out of Admin mode"
+              style={{ padding: '0.45rem 0.75rem', fontSize: '0.8rem' }}
+            >
+              <LogOut size={15} />
+              <span>Logout</span>
+            </button>
+          </div>
+        ) : (
+          <button 
+            id="btn-open-login"
+            className="btn btn-secondary" 
+            onClick={onOpenLoginModal}
+            title="Unlock admin permissions to add or edit problems"
+          >
+            <Lock size={15} />
+            <span>Admin Login</span>
+          </button>
+        )}
+
         {/* Add Problem Button */}
         <button 
           id="btn-add-problem"
           className="btn btn-primary" 
-          onClick={onOpenAddModal}
+          onClick={handleAddClick}
+          title={isAdmin ? "Log a new solved problem" : "Admin login required to log problems"}
         >
-          <Plus size={18} />
+          {isAdmin ? <Plus size={18} /> : <Lock size={15} />}
           <span>Log Problem</span>
         </button>
       </div>
